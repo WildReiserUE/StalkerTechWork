@@ -12,7 +12,7 @@ struct RecordLine
     int num;
 };
 
-enum SortType : u_int8_t
+enum SortType : uint8_t
 {
     MIN,
     family,
@@ -40,8 +40,13 @@ bool compareByNum(const RecordLine& a, const RecordLine& b)
 
 int main()
 {
+    setlocale(LC_ALL, "Ru");
     // путь и имя входного файла
-    std::ifstream inputFile("/media/wildreiser/NetacSSD/Projects/StalkerTechWork/InputFile.txt");
+    // Windows
+    std::ifstream inputFile("InputFile.txt");
+    // Linux
+    // std::ifstream inputFile("/media/wildreiser/NetacSSD/Projects/StalkerTechWork/InputFile.txt");
+
 
     if (!inputFile.is_open())
     {
@@ -75,7 +80,7 @@ int main()
             for (const auto& record : data)
             {
                 // Вывод после сортировки
-                std::cout << record.str1 << ": " << record.str2 << " " << record.num << "\n";
+                std::cout << record.str2 << " " << record.str1 << ": " << record.num << "\n";
             }
             break;
         case name:
@@ -83,7 +88,7 @@ int main()
             for (const auto& record : data)
             {
                 // Вывод после сортировки
-                std::cout << record.str2 << ": " << record.str1 << " " << record.num << "\n";
+                std::cout << record.str1 << " " << record.str2 << ": " << record.num << "\n";
             }
             break;
         case tefone:
