@@ -23,13 +23,13 @@ enum SortType : uint8_t
 // Компаратор: сортировка по фамилии
 bool compareByFamily(const RecordLine& a, const RecordLine& b)
 {
-    return a.str2 < b.str2;
+    return a.str1 < b.str1;
 }
 
 // Компаратор: сортировка по имени
 bool compareByName(const RecordLine& a, const RecordLine& b)
 {
-    return a.str1 < b.str1;
+    return a.str2 < b.str2;
 }
 
 // Компаратор: сортировка по телефону от меньше к больше
@@ -80,7 +80,7 @@ int main()
             for (const auto& record : data)
             {
                 // Вывод после сортировки
-                std::cout << record.str1 << " " << record.str2 << ": " << record.num << "\n";
+                std::cout << record.str2 << " " << record.str1 << ": " << record.num << "\n";
             }
             break;
         case name:
@@ -88,7 +88,7 @@ int main()
             for (const auto& record : data)
             {
                 // Вывод после сортировки
-                std::cout << record.str2 << " " << record.str1 << ": " << record.num << "\n";
+                std::cout << record.str1 << " " << record.str2 << ": " << record.num << "\n";
             }
             break;
         case tefone:
